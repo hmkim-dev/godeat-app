@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>갓잇 구매ㆍSCM</title>
+<meta name="theme-color" content="#1d6a54">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="갓잇 구매ㆍSCM">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>
+  /* 앱으로 설치되는 껍데기: 구글 서버의 갓잇 구매ㆍSCM 화면을 화면 가득 띄움 */
+  html,body{margin:0;height:100%;background:#1d6a54}
+  iframe{position:fixed;inset:0;width:100%;height:100%;border:0;background:#f4f6f5}
+  .load{position:fixed;inset:0;display:grid;place-items:center;color:#fff;font:600 15px system-ui,sans-serif}
+  .load[hidden]{display:none}
+</style>
+</head>
+<body>
+<div class="load" id="load">갓잇 구매ㆍSCM 여는 중…</div>
+<iframe id="app" title="갓잇 구매ㆍSCM" allow="clipboard-write; fullscreen"
+  src="https://script.google.com/macros/s/AKfycby7DpXReZ-IPglXdRS0mo7HXTTVgRDPfO71M9T1WxBnoDi2V_mPVrkfeYCme994Yow/exec"></iframe>
+<script>
+  document.getElementById('app').addEventListener('load',()=>{ document.getElementById('load').hidden=true; });
+  if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(()=>{});
+</script>
+</body>
+</html>
